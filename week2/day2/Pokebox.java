@@ -1,12 +1,12 @@
 package day2;
-public class Pokebox {
-    private int val;
+public class PokeBox {
+    private Pokemon val;
 
-    public Pokebox(int val) {
+    public PokeBox(Pokemon val) {
         this.val = val;
     }
 
-    public int pokeGet() {
+    public Pokemon pokeGet() {
         return val;
     } 
 

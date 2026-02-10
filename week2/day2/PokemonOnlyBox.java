@@ -1,21 +1,20 @@
 package day2;
 public class PokemonOnlyBox<T extends Pokemon> {
-    private T val;
+    private T value;
 
-    public PokemonOnlyBox<T val>{
-        this.val = val;
+    public PokemonOnlyBox(T value){
+        this.value = value;
     }
 
     public T get() {
-        return val;
+        return value;
     }
 
     public void set(T newVal) {
-        val = newVal;
+        value = newVal;
     }
 
-    public String toString() {
-        return val;
-    }
+    public String getType() {
+        return value.getType();
     }
 }
