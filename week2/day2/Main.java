@@ -31,4 +31,8 @@ public class Main {
         a.set(b.get());
         b.set(temp);
     }
+
+    public static void printTeam(java.util.List<? extends Pokemon> team) {
+        
+    }
 }
