@@ -1,4 +1,5 @@
 package week3;
+import java.util.*;
 
 public class Product {
     private String productId;
@@ -8,7 +9,7 @@ public class Product {
     private int quantityInStock;
     private String supplier;
 
-    public Product(String productId, String name, String category, String supplier, int quantityInStock, int price) {
+    public Product(String productId, String name, String category, double price, int quantityInStock, String supplier) {
         this.productId = productId;
         this.name = name;
         this.category = category;
@@ -64,10 +65,6 @@ public class Product {
     public void setSupp(String supplier) {
         this.supplier = supplier;
     }
-
-     public boolean equals(Object obj) {
-        return obj.getId.equals()
-     }   
 
     @Override
     public String toString() {
