@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class InventorySystemMain {
     public static void main(String[] args) {
-/* 
+ 
         //Creating product inventory, adding sample products and printing
         ProductInventory inventory = new ProductInventory();
 
@@ -39,12 +39,10 @@ public class InventorySystemMain {
         System.out.println("Total Invetory Value: " + inventory.getTotalInventoryValue());
         System.out.println("");
         System.out.println("Capacity Report"); inventory.printCapacityReport();
-        */
 
         System.out.println("");
         System.out.println("");
-        System.out.println("");
-
+        
         //Creating order manager, adding individual order items into an order
         OrderManager orderManager = new OrderManager();
 
@@ -54,14 +52,14 @@ public class InventorySystemMain {
         orderManager.addOrder(order1);
 
         Order order2 = new Order("O002", "John", "2025-01-15");
-        order1.addItem(new OrderItem("P001", "hii", 1, 999.99));
-        order1.addItem(new OrderItem("P003", "byee", 2, 29.99));
+        order2.addItem(new OrderItem("P001", "Computer", 1, 999.99));
+        order2.addItem(new OrderItem("P003", "Keyboard", 2, 29.99));
         orderManager.addOrder(order2);
 
-        //Pending Status
         orderManager.printAllOrders();
         System.out.println("");
 
+        //Pending Status
         System.out.println("Processing Order1...");
         order1.updateStatus("Delivered");
         //Delivered Status
@@ -79,9 +77,15 @@ public class InventorySystemMain {
         System.out.println("");
         System.out.println("Finding Order O001: " + orderManager.findOrder("O001"));
         System.out.println("");
-        System.out.println("Finding by Delivered Status: " + orderManager.getOrdersByStatus("Delivered"));      
+        System.out.println("Finding by Delivered Status: " + orderManager.getOrdersByStatus("Delivered"));   
+
+        /* EMPTY LIST
+        ProductInventory empty = new ProductInventory();
+        System.out.println("Removing Product 9111: " + empty.removeProduct("9111"));
+        System.out.println("Finding Product: 9111: "+ empty.findProduct("9111"));
+        */
         
-        /* 
+        /* GENERICS
         GenericContainer<String> stringContainer = new GenericContainer<>();
         stringContainer.add("Hello");
         stringContainer.add("World");

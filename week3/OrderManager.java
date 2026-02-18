@@ -34,7 +34,9 @@ public class OrderManager {
     public double getTotalRevenue() {
         double tot = 0;
         for(Order o: orders) {
+            if(o.getOrderStatus().equalsIgnoreCase("Delivered")) {
             tot+=o.calculateTotal();
+            }
         }
         return tot;
     }
