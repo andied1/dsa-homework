@@ -8,18 +8,20 @@ public class ProductInventory {
 
     public void addProduct(Product product) {
         for(Product p: products) {
-            if (p.getId().equals(product.getId())) {
+            if (p.getId().equalsIgnoreCase(product.getId())) {
                 System.out.println(product.getName() + " already exists.");
                 return;
             }
-            products.add(product);
         }
+        products.add(product);
+
         }
 
     public boolean removeProduct(String productId) {
-        for(Product p: products) {
-            if (p.getId().equals(productId)) {
-                products.remove(p);
+        Iterator<Product> pit = products.iterator();
+        while(pit.hasNext()) {
+            if(pit.next().getId().equalsIgnoreCase(productId)) {
+                pit.remove();
                 return true;
             }
         }
@@ -73,10 +75,9 @@ public class ProductInventory {
 
     public void printAllProducts() {
         System.out.println("Product ID   Product Name   Category   Price   Quantity   Supplier");
-        System.out.println("------------------------------");
-
+        System.out.println("------------------------------------------------------------------");
         for(Product p: products) {
-            System.out.printf("%3s %3s %3s %3f %3d %3s", p.getId(),p.getName(),p.getCategory(),p.getPrice(),p.getQuant(),p.getSupp());
+            System.out.printf("%-12s %-15s %-12s %-8.2f %-8d %-15s%n", p.getId(),p.getName(),p.getCategory(),p.getPrice(),p.getQuant(),p.getSupp());
         }
     }
 
@@ -88,5 +89,30 @@ public class ProductInventory {
         System.out.println("Size: " + products.size());
         System.out.println("Capacity: " + products.capacity());
     }
+
+    public void optimizeCapacity() {
+        products.trimToSize();
+    }
+
+    public void ensureCapacity(int minCapacity) {
+        products.ensureCapacity(minCapacity);
+    }
+
+    public void printCapacityReport() {
+        System.out.println("Size: " + products.size());
+        System.out.println("Capacity: " + products.capacity());
+        System.out.println(products.size()%products.capacity() * 10 + "%");
+        System.out.println(products.capacity() - products.size() + " space left");
+    }
+
+    public void printProductsUsingEnumeration() {
+        Enumeration<Product> e = products.elements();
+        while(e.hasMoreElements()) {
+            System.out.println(e.nextElement());
+        }
+    }
+    //Enumeration is legacy because it existed before collections framework and is
+    //basically replaced by the iterator. You should use enumeration when working with
+    //legacy code.
 
 }

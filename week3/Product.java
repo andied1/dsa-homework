@@ -70,6 +70,19 @@ public class Product {
     public String toString() {
         return productId + " " + name + " " + category + " " + supplier + " " + quantityInStock +  " " + price;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if(productId == obj) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productId);
+    }
 
 
 
