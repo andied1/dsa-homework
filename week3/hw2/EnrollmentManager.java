@@ -8,9 +8,7 @@ public class EnrollmentManager {
     }
 
     public void enrollStudent(String studentId, String courseCode, String semester) {
-        String enrollmentId = "E" + nextId;
-        nextId++;
-
+        String enrollmentId = String.format("E%03d", nextId++);
         Enrollment enrollment = new Enrollment(enrollmentId, studentId, courseCode, null, semester);
         enrollments.add(enrollment);
     }
@@ -78,6 +76,10 @@ public class EnrollmentManager {
                 count++;
             }
         }
+        if(count == 0)  {
+            return 0.0;
+        }
+
         return tot / count;
     }
 
