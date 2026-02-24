@@ -13,11 +13,4 @@ public class GenericQueue<T> {
     public boolean isEmpty() { return que.isEmpty(); }
 
     public int size() { return que.size(); }
-
-    public static void main(String[] args) {
-        GenericQueue<Integer> queue = new GenericQueue<>();
-queue.enqueue(10);
-queue.enqueue(20);
-System.out.println(queue.dequeue());  // 10
-    }
 }
