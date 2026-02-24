@@ -76,8 +76,18 @@ public class ArrayListVsArrayDemo {
         endt = System.nanoTime();
 
         System.out.println("Time to access 1,000 Students Array: " + (endt - startt));
+
+        System.out.println("");
+
+        System.out.println("Adding 10000 students into arraylist takes longer than an array");
+        System.out.println("Time to acess 1000 random students takes longer in array than arraylist");
+        System.out.println("");
+
+        System.out.println("Use Arraylist when you are constantly changing the size of the list, or handling with different data types or objects");
+        System.out.println("Use Array when doing a fixed size, or handling primitive data types, and with these better performance");
     }
+
+    
     
 }
 
-//NEED COMPARISON REPORT AND SUMMARY ON EACH
