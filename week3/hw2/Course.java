@@ -13,7 +13,7 @@ public class Course {
         this.credits = credits;
         this.instructor = instructor;
         this.maxEnrollment = maxEnrollment;
-        ArrayList<String>prerequisites = new ArrayList<>();
+        this.prerequisites = new ArrayList<>();
     }
 
     public String getCourseCode() { return courseCode; }

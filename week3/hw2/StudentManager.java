@@ -64,6 +64,7 @@ public class StudentManager {
     }
 
     public double getAverageGpa() {
+        if(students.isEmpty()) { return 0.0; }
         double avggpa = 0.0;
         for(Student s: students) {
             avggpa += s.getGpa();
