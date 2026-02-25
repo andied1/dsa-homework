@@ -6,6 +6,11 @@ public class StudentManagementSystemMain {
         EnrollmentManager enrollmentManager = new EnrollmentManager();
         ReportGenerator report = new ReportGenerator();
 
+        //StudentManager empstudentManager = new StudentManager();
+        // empstudentManager.printAllStudents();
+        //System.out.println(empstudentManager.getAverageGpa());
+        //EMPTY STUDENT LIST
+
         //STUDENT MANAGER
         studentManager.addStudent(new Student("S001", "Alice", "Smith", "alice@university.edu", 3.8, "Computer Science", 2));
         studentManager.addStudent(new Student("S002", "Jake", "Mits", "jake@university.edu", 2.5, "Mechanical Engineering", 3));
@@ -63,7 +68,7 @@ public class StudentManagementSystemMain {
         report.generatorStudentReport("S001", studentManager, enrollmentManager);
         System.out.println("");
 
-        /* 
+        
         //GENERICS
         ArrayList<Integer> num = new ArrayList<>();
         num.add(5);
@@ -77,6 +82,6 @@ public class StudentManagementSystemMain {
         queue.enqueue(10);
         queue.enqueue(20);
         System.out.println(queue.dequeue());
-        */
+        
     }
 }
