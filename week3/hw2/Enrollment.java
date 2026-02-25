@@ -13,7 +13,7 @@ public class Enrollment {
         this.semester = semester;
     }
 
-    public Enrollment(String studentId, String courseCode, String semester) {
+    public Enrollment(String enrollmentId, String studentId, String courseCode, String semester) { //Without grade
         this.studentId = studentId;
         this.courseCode = courseCode;
         this.semester = semester;

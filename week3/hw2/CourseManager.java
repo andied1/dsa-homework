@@ -28,21 +28,40 @@ public class CourseManager {
         return instruc;
     }
 
+    //Did not understand this method much, had online help
     public ArrayList<Course> getAvailableCourses(String studentId, StudentManager studentManager, EnrollmentManager enrollmentManager) {
         ArrayList<Course> avail = new ArrayList<>();
         ArrayList<Enrollment> stuenroll = enrollmentManager.getEnrollmentsByStudent(studentId);
         for(Course course: courses) {
+            boolean alreadyEnrolled = false;
             for(Enrollment e: stuenroll) {
                 if(!e.getCourseCode().equalsIgnoreCase(course.getCourseCode())) {
-                    for(String prereq: course.getPrerequisites()) {
-                        for(Enrollment g: stuenroll) {
-                            if(g.getCourseCode().equals(prereq) && g.isPassing()) {
-                                avail.add(course);
-                            }
-                        }
-                    }
+                    alreadyEnrolled = true;
+                    break;
                 }
             }
+            if(alreadyEnrolled) continue;
+                if(course.getPrerequisites().isEmpty()) {
+                    avail.add(course);
+                    continue;
+                }
+                boolean meetsAllPrereqs = true;
+                for(String pre: course.getPrerequisites()) {
+                    boolean found = false;
+                    for(Enrollment e: stuenroll) {
+                        if(e.getCourseCode().equalsIgnoreCase(pre) && e.isPassing()) {
+                            found=true;
+                            break;
+                        } 
+                    }
+                    if(!found) {
+                        meetsAllPrereqs = false;
+                        break;
+                    }
+                }
+                if(meetsAllPrereqs) {
+                    avail.add(course);
+                }
         }
         return avail;
     }

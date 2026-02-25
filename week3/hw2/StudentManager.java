@@ -7,10 +7,11 @@ public class StudentManager {
     }
 
     public void addStudent(Student student) {
+        if(student == null) { System.out.println("Student cannot be null"); }
         if(findStudent(student.getId()) == null) {
             students.add(student);
         }
-        else {
+        else if(findStudent(student.getId()) != null) {
             System.out.println("Student already in list");
         }
     }
@@ -25,6 +26,7 @@ public class StudentManager {
     }
 
     public Student findStudent(String studentId) {
+        if(studentId == null) { return null; }
         for(Student s : students) {
             if(s.getId().equals(studentId)) {
                 return s;
@@ -73,6 +75,7 @@ public class StudentManager {
     }
 
     public double getAverageGpaByMajor(String major) {
+        if(major == null) { return 0.0; }
         double avggpa = 0.0;
         ArrayList<Student> newmaj = getStudentsByMajor(major);
         for(Student s: newmaj) {
@@ -82,6 +85,7 @@ public class StudentManager {
     }
 
     public void printAllStudents() {
+        if(students.isEmpty()) { System.out.println("No Student in list"); }
         System.out.println("Student ID      Student           Year            Major              Gpa");
         System.out.println("-------------------------------------------------------------------------");
         for(Student s: students) {
