@@ -6,15 +6,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Data // (Lombok), auto geneerates getters, setters, toString, equals, hashCode
+@NoArgsConstructor // Generates a no-argument constructor
+@AllArgsConstructor // Generates a constructor with all fields
 public class Task {
     
     private Integer id;
     
-    @NotBlank(message = "Title is required")
-    @Size(min = 3, max = 100, message = "Title must be between 3 and 100 characters")
+    @NotBlank(message = "Title is required") //Checks if title is empty
+    @Size(min = 3, max = 100, message = "Title must be between 3 and 100 characters") //Validates string length
     private String title;
     
     @Size(max = 500, message = "Description cannot exceed 500 characters")
