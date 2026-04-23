@@ -1,4 +1,4 @@
-HW 5
+HW 6
 
 Project Description: Using SpringBoot to create a REST API to interact with different HTTP requests and having the proper methods to interact with them. Creating tasks, and displaying them well with JPA and H2 database provided by Spring. We also get support with method naming, entity, data table, data organizaiton, pagination, filtering, and custom queries. Different operations also supported which reduces our need for complex SQL coding which the data base tools are already provided in Spring like method naming, creating custom queries without SQL complexity.
 
