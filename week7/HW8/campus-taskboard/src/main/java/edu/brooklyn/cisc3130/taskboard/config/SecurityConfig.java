@@ -16,21 +16,23 @@ import java.util.List;
 @EnableWebSecurity
 public class SecurityConfig {
     
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable()) // Disable for API (use token-based auth in production)
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/tasks/**").permitAll() // Allow all task endpoints
-                .requestMatchers("/h2-console/**").permitAll() // Allow H2 console
-                .requestMatchers("/actuator/**").permitAll() // Allow actuator
-                .anyRequest().authenticated()
-            )
-            .headers(headers -> headers.frameOptions().disable()); // Allow H2 console frames
-        
-        return http.build();
-    }
+@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers(
+                "/swagger-ui/**",
+                "/v3/api-docs/**",
+                "/h2-console/**",
+                "/api/**"
+            ).permitAll()
+            .anyRequest().authenticated()
+        )
+        .headers(headers -> headers.frameOptions(frame -> frame.disable()));
+
+    return http.build();
+}
     
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
