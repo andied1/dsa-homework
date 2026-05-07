@@ -1,0 +1,8 @@
+edu/brooklyn/cisc3130/taskboard/config/OpenApiConfig.class
+edu/brooklyn/cisc3130/taskboard/exception/TaskNotFoundException.class
+edu/brooklyn/cisc3130/taskboard/CampusTaskboardApplication.class
+edu/brooklyn/cisc3130/taskboard/config/LoggingFilter.class
+edu/brooklyn/cisc3130/taskboard/dto/ErrorResponse.class
+edu/brooklyn/cisc3130/taskboard/exception/GlobalExceptionHandler.class
+edu/brooklyn/cisc3130/taskboard/exception/InvalidTaskDataException.class
+edu/brooklyn/cisc3130/taskboard/dto/TaskRequest.class

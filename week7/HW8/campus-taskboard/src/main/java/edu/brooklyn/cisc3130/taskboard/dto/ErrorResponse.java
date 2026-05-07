@@ -23,4 +23,11 @@ public class ErrorResponse {
         this.message = message;
         this.path = path;
     }
+
+    public class TaskRequest {
+    private String title;
+    private String description;
+    private Boolean completed;
+    private String priority;
+}
 }
